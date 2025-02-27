@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arein Hussein portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dynalight&family=Lora&display=swap" rel="stylesheet">
+</head>
+<style>
+       /*projekter*/
+.projekt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    flex: 1 1 40rem;
+}
+
+.scope {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    transform-style: preserve-3d;
+    animation: slid 30s linear infinite;
+}
+
+.scope span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+}
+
+.scope span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.scope span:hover img {
+    transform: translateY(-50px) scale(1.7);
+}
+.modal {
+    display: none; /* Skjult som standard */
+    position: fixed; /* Bliver på plads */
+    z-index: 1; /* Oven på alt andet */
+    right: 0;
+    top: 0;
+    width: 100%; /* Fuldt bredde */
+    height: 100%; /* Fuldt højde */
+    overflow: auto; /* Aktiverer scroll hvis nødvendigt */
+    background-color: rgb(0,0,0); /* Sort baggrund */
+    background-color: rgba(0,0,0,0.4); /* Sort med lidt gennemsigtighed */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@keyframes slid {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+/* Media Queries for responsivitet */
+@media (min-width: 768px) {
+    .modal-content {
+        margin: 15% auto; /* Mere plads på større skærme */
+        padding: 40px; /* Mere padding på større skærme */
+    }
+}
+
+@media (min-width: 1024px) {
+    .modal-content {
+        margin: 10% auto; /* Justeret margin for store skærme */
+        padding: 60px; /* Mere padding for store skærme */
+    }
+}
+</style>
+<body>
+
+
+<nav class="bg-white shadow-lg p-3">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+      <a href="#hjem" class="flex items-center space-x-3 rtl:space-x-reverse" style="font-family: 'Dynalight', cursive;">
+        
+          <span class="self-center text-red-900 font-bold text-5xl whitespace-nowrap">Arein Hussein</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-red-900 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-red-900 dark:text-red-900 dark:hover:bg-pink-100 dark:focus:ring-red-900 bg-pink-100" aria-controls="navbar-default" aria-expanded="false" style="border: #620819 4px solid;">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default" style="font-family: 'Lora', serif;">
+        <ul class="font-semibold text-xl  text-red-900 flex flex-col p-4 md:p-0 mt-4  bg-white  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-gray-900 dark:border-gray-700 hover:decoration-pink-500" style="font-family: 'Lora', serif;">
+          <li>
+            <a href="#om" class="block  py-2 px-3 text-red-900 rounded-sm md:bg-transparent md:text-red-900 md:p-0 dark:text-red-900 md:dark:text-red-900 " aria-current="page">Om mig</a>
+          </li>
+          <li>
+            <a href="#services" class="block  py-2 px-3 text-red-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-900 md:p-0 dark:text-red-900 md:dark:hover:md:hover:text-red-900 dark:hover:bg-gray-700 dark:hover:text-red-900 md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#projekter" class="block  py-2 px-3 text-red-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-900 md:p-0 dark:text-white md:dark:hovertext-red-900 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projekter</a>
+          </li>
+          <li>
+            <a href="#kontakt" class="block py-2 px-3 text-red-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-900 md:p-0 dark:text-white md:dark:hover:text-red-900 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Kontakt</a>
+          </li>
+          <li>
+            <a href="#https://github.com/YaMe09" class="block  py-2 px-3 text-red-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-900 md:p-0 dark:text-white md:dark:hover:text-red-900 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">GitHub</a>
+          </li>
+          <li>
+            <a href="#https://www.linkedin.com/in/arein-hussein/" class="block py-2 px-3 text-red-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-900 md:p-0 dark:text-white md:dark:hover:text-red-900 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    
+    
+    <div class="relative isolate px-6 pt-14 lg:px-8" style="background-image: url(./images/bagground.png);" id="hjem">
+        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true" >
+          <div class="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        <div class="mx-12 max-w-2xl py-32 sm:py-48 lg:py-56"  style="font-family: 'Lora', serif;">
+          
+          <div class="text-end">
+            <h3 class=" font-semibold tracking-tight text-balance text-red-900 text-4xl" style="font-family: 'Dynalight', cursive;">Velkommen</h3>
+            <h3 class=" mt-4 font-medium tracking-tight text-balance text-gray-900 text-3xl" style="font-family: 'Lora', serif;">Jeg er <span style="color: #620819;">webudvikling</span> </h3>
+            <p class="mt-8 text-xl font-medium text-pretty text-gray-900 text-xl/8" style="font-family: 'Lora', serif;">
+                Med en kærlighed til at kode og designe. Her på min portefølje kan du se nogle af de projekter,
+                jeg har arbejdet på. Lad os skabe noget fantastisk sammen!
+            </p>
+            <div class="mt-10 flex  ">
+              <a href="#om" class="cursor-pointer py-2 px-12 rounded-full border-red-900 border-4 bg-white  text-md font-medium text-black  hover:bg-red-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900" style="font-family: 'Lora', serif;">Mere om mig</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+          <div class="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+      </div>
+    </div>    
+    <div class="relative isolate px-6 pt-14 lg:px-8"  id="om" style="font-family: 'Lora';">
+        <h5 class="  ml-3   text-3xl font-semibold" style="color: #620819;">Om mig</h5>  
+        <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+        <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;" ></div>
+
+        <div class="mt-2 flex justify-center">
+            <video class=" h-96 border-red-900 border-2"  controls style="box-shadow: gray 5px 4px 8px 0 ;">
+                <source src="./images/Om mig.mp4" type="video/mp4"> 
+            </video>
+        </div>
+        <div class="ml-5">
+            <h3 class=" mt-4 font-medium tracking-tight text-balance text-gray-900 text-3xl" style="font-family: 'Lora', serif;">Jeg er <span style="color: #620819;">webudvikling</span> </h3>
+            <p class="mt-8 text-xl font-medium text-pretty text-gray-900 text-xl/8" style="font-family: 'Lora', serif;">
+                med en stor interesse for både front-end og back-end udvikling. Gennem min uddannelse har jeg fået solid erfaring med værktøjer som Figma, Canva og WordPress. Jeg har også færdigheder inden for videoredigering, GitHub og UI/UX design. Jeg arbejder med webteknologier som HTML, CSS, JavaScript, MySQL, Firebase, Vue.js, Vuetify og React. Min nysgerrighed driver mig til hele tiden at lære nye teknologier, og jeg lærer hurtigt. Det har givet mig mulighed for at deltage i spændende projekter, hvor jeg kan bruge mine færdigheder. Jeg elsker at lade min fantasi guide mig i designprocessen. Jeg er en organiseret person, der arbejder struktureret for at levere gode resultater. Du kan læse mere om min rejse og mine erfaringer i mit CV.
+            </p>
+            <div class="mt-10 flex  mb-5">
+                <a href="./images/areinhussein portfolio.pdf" class="cursor-pointer rounded-full border-red-900 border-4 bg-white py-2 px-12 text-md font-medium text-black  hover:bg-red-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900" style="font-family: 'Lora', serif;">Mit CV</a>
+            </div>
+
+            <div class="flex flex-col lg:flex-row">
+                <!-- Første kolonne -->
+                <div class=" lg:w-1/2">
+                    <h4 class="text-2xl ml-5 mt-5" style="color: #620819; font-family: 'Lora';">Uddannelse</h4>
+                    <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+                    <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;"></div>
+            
+                    <div class="bg-white shadow-md my-5 mx-5 p-4" style="font-family: 'Lora';">
+                        <div class="ml-4 font-semibold">
+                            <h5 class="mb-3">
+                                <i class="fa fa-calendar"></i> 2007 - 2009
+                            </h5>
+                            <h5>Kimi</h5>
+                            <p class="mb-3">Al-Mustanserie universitet</p>
+                        </div>
+                        <div class="ml-4">
+                            <h5 class=" mb-3">
+                                <i class="fa fa-calendar"></i> 2022 - 2024
+                            </h5>
+                            <h5>Multimediedesigner</h5>
+                            <p class="mb-3">Zealand - Sjællands Erhversakademi</p>
+                        </div>
+                        <div class="ml-4">
+                            <h5 class=" mb-3">
+                                <i class="fa fa-calendar"></i> 2024 - 2026
+                            </h5>
+                            <h5>Webudvikling</h5>
+                            <p>Zealand - Sjællands Erhversakademi</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Anden kolonne -->
+                <div class=" lg:w-1/2">
+                    <h4 class="text-2xl ml-5 mt-5" style="color: #620819; font-family: 'Lora';">Uddannelse</h4>
+                    <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+                    <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;"></div>
+            
+                    <div class="bg-white shadow-md my-5 mx-5 p-4" style="font-family: 'Lora';">
+                        <div class="ml-4 font-bold ">
+                            <h5 class="mb-2">
+                                <i class="fa fa-calendar"></i> 2022 - 2024
+                            </h5>
+                            <h5 >HTML, CSS, JavaScript, CSS animation</h5>
+                            <h5 >UI/UX</h5>
+                            <h5 >React og Vite</h5>
+                            <h5 >Videoredigering</h5>
+                            <h5 class=" mb-3">WordPress</h5>
+                        </div>
+                        <div class="ml-4 font-semibold">
+                            <h5 class="font-bold my-2">
+                                <i class="fa fa-calendar"></i> 2024 - 2026
+                            </h5>
+                            <h5 >Vue + Vuetify</h5>
+                            <h5>Database (Firebase + MySQL)</h5>
+                            <h5>PHP (pågående)</h5>
+                            <h5>3D design (pågående)</h5>
+                            <h5 >React (pågående)</h5>
+                            <h5 >CSS framework (Bootstrap, Bulma, Tailwind) (pågående)</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="mt-4 mb-5 ml-4"  style="font-family: 'Lora';"  id="services">
+        <h5 class="  ml-3  text-3xl font-semibold" style="color: #620819;">Services</h5>  
+        <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+        <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;" ></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-5 ml-6 mr-10" style="font-family: 'Lora';">
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="fas fa-laptop-code text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">Web Design</h4>
+                <p class="text-gray-500">Brugervenlige hjemmesider</p>
+            </div>
+           
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="fa fa-paint-brush text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">Grafisk design</h4>
+                <p class="text-gray-500">Visuel stil styrker brand</p>
+            </div>
+           
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="fa fa-code text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">Frontend-Udvikler</h4>
+                <p class="text-gray-500">Intuitiv design letter navigation</p>
+            </div>
+            
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="fas fa-database text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">Backend-Udvikler</h4>
+                <p class="text-gray-500">Sikre servere til hurtig data</p>
+            </div>
+            
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="far fa-clone text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">3D Design</h4>
+                <p class="text-gray-500">pågående</p>
+            </div>
+            <div class="shadow-md bg-white text-center py-3 border-gray-200 border-2 rounded-lg">
+                <div class="icon" style="color: #620819;">
+                    <i class="fa fa-palette text-xl"></i>
+                </div>
+                <h4 class="font-semibold" style="color: #620819;">kreativ</h4>
+                <p class="text-gray-500">Visuel kommunikation fortæller</p>
+            </div>
+            
+        </div>
+    </div> 
+    <div class="mt-12 mb-4 ml-4" id="projekter">
+        <h5 class="  ml-3  text-3xl font-semibold" style="color: #620819;">Projekter</h5>  
+        <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+        <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;" ></div>
+
+        <section class="projekt">
+            <div class="scope">
+                <span style="--i:1;" data-name="HMI Tømrerfirma" data-description="Beskrivelse: HMI Tømrerfirma hjemmesiden" data-role="Min rolle: Webudvikling og optimering af ydelsessider. Du kan finde det på min GitHub">
+                    <img src="Images/HMI tømrerfirma.png" alt="not found">
+                </span>
+                <span style="--i:2;" data-name="Flemming Boje" data-description="Beskrivelse: Coch og Rådgivning hjemmesiden" data-role="Min rolle: Projektleder. Jeg har arbejdet med det hele, fra grafisk design og webudvikling til andre opgaver. Du kan finde det på min GitHub og online på www.flemmingboje.dk">
+                    <img src="Images/Coch og rådgivning.png" alt="not found">
+                </span>
+                <span style="--i:3;" data-name="El-teknik" data-description="Beskrivelse: El-teknik hjemmesiden" data-role="Designet og optimeret hjemmesiden. Du kan finde den på min GitHub.">
+                    <img src="Images/El-teknik.png" alt="not found">
+                </span>
+                <span style="--i:4;" data-name="Enok Naturklinik" data-description="Beskrivelse: Mathilde er en traumeinformeret terapeut, hjælper med stress, traumer og sygdomme." data-role="Min rolle: Implementere bookingsystemet">
+                    <img src="Images/klink.png" alt="not found">
+                </span>
+                <span style="--i:5;" data-name="To Do List" data-description="Beskrivelse: To Do List" data-role="Min rolle: En simpel og sjov to-do liste, hvor du kan tilføje og slette opgaver. Du kan finde det på min GitHub.">
+                    <img src="Images/To do list.png" alt="not found">
+                </span>
+                <span style="--i:6;" data-name="XO Game" data-description="Beskrivelse: XO Game" data-role="Min rolle: Designer og implementerer XO-spillet. Du kan finde det på min GitHub.">
+                    <img src="Images/xo game.png" alt="not found">
+                </span>
+                <span style="--i:7;" data-name="Ønske Kreativ" data-description="Beskrivelse: Ønske Kreativ" data-role="Min rolle: Design en kalender med en daglig to-do-liste, mål og skema.">
+                    <img src="Images/ønske kreativ.png" alt="not found">
+                </span>
+                <span style="--i:8;" data-name="Blomest" data-description="Beskrivelse: Blomest" data-role="Min rolle: optimeret hjemmesiden. ">
+                    <img src="Images/Blomest.png" alt="not found">
+                </span>
+            </div>
+        </section>
+        
+        <!-- Modal -->
+        <div id="projectModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalName"></h2>
+                <img id="modalImage" src="" alt="Project Image" style="width: 100%; height: auto;">
+                <p id="modalDescription"></p>
+                <p id="modalRole"></p>
+            </div>
+        </div>  
+    </div>
+    <div class=" mb-5 ml-4" style="font-family: 'Lora';" id="kontakt">
+        <h5 class="  ml-3   text-3xl font-semibold" style="color: #620819;">Kontakter</h5>  
+        <div class="my-1 ml-4" style="border-bottom: #620819 2px solid; width: 55px;"></div>
+        <div class="my-2 ml-4" style="border-bottom: #620819 2px solid; width: 35px;" ></div>
+
+        <div class="media-content mt-8 shadow-md py-4 mr-5 ml-5 px-4" style="font-family: 'Lora';">
+           
+                <p class="text-lg font-semibold ml-5">
+                  <strong>Kontakt information</strong>
+                </p>
+             
+              <div class="text-base my-4 ml-5">
+                Hvis du ønsker mere information om mine projekter,
+                er du velkommen til at kontakte mig eller skrive til mig.
+                Jeg vil med glæde besvare dine spørgsmål eller give yderligere detaljer om mine projekter.
+                Jeg ser frem til at høre fra dig.
+                <br>
+                <div class="my-5 font-semibold ">
+                  <strong>Kontakt mig</strong>
+                </div>
+              
+                <div class="flex items-center mb-8">
+                  <span class="mr-2">
+                    <i class="fas fa-envelope-open-text"></i>
+                  </span>
+                  <span>Email</span>
+                  <a href="mailto:me14ya17@gmail.com" class="ml-5" style="color: rgb(59, 58, 58); font-family: 'Lora', serif;">
+                    me14ya17@gmail.com
+                  </a>
+                </div>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="96f60cc4-cf78-4a34-bf16-d8c2f12dc122">
+                <div class=" gap-x-8">
+                <div class="relative mb-3">
+                  <input type="text" id="default-search" class="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal  text-gray-900 bg-transparent border border-red-900  placeholder-gray-400 focus:outline-none rounded-md" placeholder="Navn" required="">
+                </div>
+                
+                <div class="relative mb-3">
+                    <input type="text" id="default-search" class="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-red-900  placeholder-gray-400 focus:outline-none rounded-md" placeholder="Email" required="">
+                </div>
+                <div class="relative mb-3">
+                    <input type="num" id="default-search" class="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-red-900  placeholder-gray-400 focus:outline-none rounded-md" placeholder="Tel." required="">
+                </div>
+                <div class="relative mb-3">
+                    <div class="flex">
+                        <div class="relative w-full">
+                           <textarea class="block w-full h-40 px-4 py-2.5 text-base leading-7 font-normal shadow-xs text-gray-900 bg-transparent border border-red-900  placeholder-gray-400 focus:outline-none resize-none rounded-md" placeholder="Din besked..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button class="w-52 h-12 bg-white  border-red-900 hover:bg-red-900 transition-all duration-700 rounded-full shadow-xs text-black text-base font-semibold leading-6" style="border: #620819 1px solid;">Send</button>
+            </form> 
+        </div>
+    </div>
+    <script>
+        /* Billede beskrivelse */
+document.querySelectorAll('.scope span').forEach(item => {
+    item.addEventListener('click', event => {
+        // Hent data fra det klikkede element
+        const name = item.getAttribute('data-name');
+        const description = item.getAttribute('data-description');
+        const role = item.getAttribute('data-role');
+        const imageSrc = item.querySelector('img').src;
+
+        // Opdater modalvinduet med de hentede data
+        document.getElementById('modalName').textContent = name;
+        document.getElementById('modalDescription').textContent = description;
+        document.getElementById('modalRole').textContent = role;
+        document.getElementById('modalImage').src = imageSrc;
+
+        // Vis modalvinduet
+        document.getElementById('projectModal').style.display = 'block';
+    });
+});
+
+// Luk modalvinduet når brugeren klikker på krydset
+document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('projectModal').style.display = 'none';
+});
+
+// Luk modalvinduet når brugeren klikker uden for modalindholdet
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('projectModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>
