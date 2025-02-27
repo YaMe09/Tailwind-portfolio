@@ -1,10 +1,10 @@
 # Tailwind
 ## Beskrivelse
-Dette er mit personlige portfolio, hvor jeg præsenterer mine projekter og færdigheder. Portfolioen er bygget med HTML og Tailwind CSS framework for at skabe et responsivt og moderne design.
+Dette er mit personlige portfolio, hvor jeg præsenterer mine projekter og færdigheder. Portfolioen er bygget med HTML og Tailwind CSS framework  og Javascriptfor at skabe et responsivt og moderne design.
 ### Frontend-værktøjer
 - HTML
-- CSS
 - Tailwind CSS Framework
+- Javascript
 #### Installation
 For at køre dette projekt lokalt, skal du følge disse trin:
 git clone https://github.com/YaMe09/Tailwind-portfolio
